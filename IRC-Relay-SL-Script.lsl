@@ -5,7 +5,7 @@
 
 string url; key http_request_id;
 string server_url="http://xxxchatters.com";
-string server_port="1110"; // This is unique for each channel
+string server_port="1111"; // This is unique for each channel
  
 default {
 
