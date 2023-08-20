@@ -159,7 +159,19 @@ POE::Component::Server::TCP->new(
     my $msg=uri_unescape($request->uri());
 
     $msg =~ s/\///;
-   
+
+    if($msg =~ m/\?PNG=1/)
+
+    {
+       my $response = HTTP::Response->new(200);
+       $response->push_header('Content-type', 'text');
+       $response->content("PONG");
+       $heap->{client}->put($response);
+       $kernel->yield("shutdown");
+       return;
+    }
+
+
     if($msg =~ m/\?URI=/)
     {
 	$msg =~ s/\?URI=//;	
