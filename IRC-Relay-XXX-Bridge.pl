@@ -122,11 +122,9 @@ sub got_response {
 
 # Spawn a web server on all interfaces.
  sub error_handler {
-
     my ($syscall_name, $error_number, $error_string) = @_[ARG0, ARG1, ARG2];
     print "MEH an error $error_string";
     exit(-1);
-
   }
 
 POE::Component::Server::TCP->new(
@@ -163,11 +161,10 @@ if($msg =~ m/\?URI=/)
    }
 
    if($msg =~ m/\?PING=1/)
-
     {
     $body = "PONG";
     }
-
+    
     my $response = HTTP::Response->new(200);
     $response->push_header('Content-type', 'text');
     $response->content($body);
