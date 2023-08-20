@@ -156,7 +156,7 @@ if($msg =~ m/\?URI=/)
     {
     $msg =~ s/\?MSG=//;
     # Send the recieved message from http server to the IRC component
-    $irc->call(privmsg => ("#The_Southern_Plains",$msg));
+    $irc->call(privmsg => ("#Koroban_Kaverns",$msg));
     $body = "OK";
    }
 
